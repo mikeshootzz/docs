@@ -1,4 +1,4 @@
-site_name: Mikes Docs
+site_name: Mike Ditton
 extra_css:
   - stylesheets/extra.css
 theme:
