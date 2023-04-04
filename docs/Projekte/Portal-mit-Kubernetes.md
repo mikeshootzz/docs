@@ -25,7 +25,7 @@ Um überhaupt auf das Image in unserer privaten Registry zugreifen zu können, m
 Anschliessend konnte ich mein Deployment Script schreiben.
 
 ### Deployment
-```yml
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -72,7 +72,7 @@ spec:
 ### Ingress
 Um auf das Portal auch extern zugreifen zu können, habe ich eine Ingress Regel definiert. Man hätte theoretisch den Service auch mittels NodePort freigeben können, der Ingress ist jedoch die deutlich schönere Lösung. Alle HTTP Anfragen landen zuerst bei unserem Reverseproxy Caddy. Dieser vergibt den Diensten ein SSL Zertifikat und leitet sie an das Cluster weiter, wo sie anhand der Ingress Regeln weitergeleitet werden. 
 
-```yml
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -97,7 +97,7 @@ spec:
 ### HPA
 Mit der [horizontalen Pod Autoskalierung](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/) konnte ich eine Regel definieren, bei der automatisch je nach Auslastung mehr Pods hochgefahren werden, oder auch überflüssige gelöscht werden. Hierfür musste ich ebenfalls nochmals ein Configfile schreiben.
 
-```yml
+```yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -128,7 +128,7 @@ Um die Redis Datenbank zu deployen, musste ich ein StatefulSet verwenden. Dieses
 
 ### StatefulSet
 
-```yml
+```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -185,7 +185,7 @@ Die Base API kam mit vielen Umgebungsvariablen daher. Da ich diese in einer Conf
 
 
 ### ConfigMap
-```yml
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -215,7 +215,7 @@ data:
 Somit hatte ich die nicht "schützenswerten Variablen" definiert. Da ich aber auch noch die Client-Informationen für Auth0 irgendwo unterbringen musste, musste noch ein Secret erstellt werden. 
 
 ### Secret
-```yml
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -228,7 +228,7 @@ data:
 Mit dem Secret hatte ich jetzt alle Umgebungsvariablen gesetzt und es war an der Zeit, das Deployment zu schreiben :tada:.
 
 ### Deployment
-```yml
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -373,7 +373,7 @@ Auch hier wird wieder auf unser NAS zugegriffen, damit die API an die Import-Dat
 ### Ingress
 Da die API von aussen erreicht sein sollte, musste wieder ein Ingress Regel geschrieben werden.  
 
-```yml
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -414,7 +414,7 @@ In diesem Projekt hatte ich sehr viel Spass und ich bin extrem Stolz auf mich, d
 Ich habe ziemlich mit dem DNS-Server der Pods gekämpft. Damit die Pods sich bei Auth0 registrieren können, muss diese Domäne vom Core DNS aufgelöst werden können. Da dies bei mir aber nicht funktioniert hat, musste ich mir eine Lösung im Internet zusammensuchen. 
 Schlussendlich habe ich herausgefunden, dass ich mittels einer ConfigMap den DNS-Server, mit dem der Core DNS Dienst selbst seine Anfragen auflöst, setzen kann.  
 
-```yml
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:

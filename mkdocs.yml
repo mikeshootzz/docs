@@ -1,4 +1,12 @@
 site_name: Mike Ditton
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      use_pygments: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
 extra_css:
   - stylesheets/extra.css
 theme:
@@ -6,6 +14,7 @@ theme:
   features:
     - navigation.sections
     - toc.integrate
+    - content.code.copy
   name: material
   palette: 
 
