@@ -1,4 +1,20 @@
 site_name: Mike Ditton
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/mikeditton/
+    - icon: fontawesome/brands/mastodon 
+      link: https://ioc.exchange/@mikestootzz
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/mike_shootzz/
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/dockermike1809
+    - icon: fontawesome/brands/github
+      link: https://github.com/mikeshootzz
+    - icon: fontawesome/brands/gitlab
+      link: https://gitlab.com/mike_shootzz
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCLq2y5d5J1ZRmrt4lIGnatw
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -10,6 +26,8 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
 theme:
+  logo: images/developer-board.svg
+  favicon: images/developer-board.svg
   language: de
   features:
     - navigation.tabs
