@@ -1,3 +1,21 @@
-site_name: My Docs
+site_name: Mikes Docs
+extra_css:
+  - stylesheets/extra.css
 theme:
+  language: de
+  features:
+    - navigation.tabs
   name: material
+  palette: 
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
