@@ -1,4 +1,5 @@
 site_name: Mike Ditton
+copyright: Copyright &copy; 2023 Mike Ditton
 extra:
   social:
     - icon: fontawesome/brands/linkedin
