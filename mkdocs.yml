@@ -12,8 +12,8 @@ extra_css:
 theme:
   language: de
   features:
-    - navigation.sections
-    - toc.integrate
+    - navigation.tabs
+    - toc.follow
     - content.code.copy
   name: material
   palette: 
