@@ -36,7 +36,7 @@ theme:
     - content.code.copy
   name: material
   palette: 
-
+    - primary: deep purple
     # Palette toggle for light mode
     - scheme: default
       toggle:
